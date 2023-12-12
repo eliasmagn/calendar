@@ -16,6 +16,7 @@
     "@event-calendar/build": "~2.5.0",
     "@event-calendar/core": "~2.5.0",
     "@event-calendar/day-grid": "~2.5.0",
+    "@event-calendar/custom-grid": "~0.0.1",
     "@event-calendar/interaction": "~2.5.0",
     "@event-calendar/list": "~2.5.0",
     "@event-calendar/resource-time-grid": "~2.5.0",

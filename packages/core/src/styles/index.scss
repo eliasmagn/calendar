@@ -196,6 +196,10 @@
     flex: 1 1 auto;
   }
 }
+  .ec-custom-grid & {
+    flex: 1 1 auto;
+  }
+}
 
 .ec-sidebar {
   flex: 0 0 auto;
@@ -232,6 +236,15 @@
     overflow: hidden;  // remove scrolling due to hidden events
   }
 
+  .ec-custom-grid & {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .ec-custom-grid .ec-uniform & {
+    overflow: hidden;  // remove scrolling due to hidden events
+  }
+
   .ec-list & {
     flex-direction: column;
   }
@@ -250,6 +263,7 @@
   }
 
   .ec-day-grid &,
+  .ec-custom-grid &,
   .ec-resource & {
     flex: 1 0 auto;
   }
@@ -284,6 +298,19 @@
     border-left: none;
   }
 
+  .ec-custom-grid .ec-body & {
+    min-height: 5em;
+    position: relative;
+  }
+
+  .ec-custom-grid .ec-uniform & {
+    min-height: 0;
+  }
+
+  .ec-custom-grid &:first-child {
+    border-left: none;
+  }
+
   &.ec-other-month .ec-day-head {
     opacity: .3;
   }
@@ -294,6 +321,13 @@
 }
 
 .ec-day-grid {
+  .ec-day-head {
+    display: block;
+    text-align: right;
+    padding: 4px 4px 3px;
+  }
+
+.ec-custom-grid {
   .ec-day-head {
     display: block;
     text-align: right;
@@ -360,6 +394,7 @@
   z-index: 1;  // put it above the pointer event (for multi-day events in month view)
 
   .ec-day-grid &,
+  .ec-custom-grid &,
   .ec-all-day & {
     position: relative;
   }
@@ -404,6 +439,7 @@
   width: 100%;
 
   .ec-day-grid &,
+  .ec-custom-grid &,
   .ec-all-day & {
     flex-direction: row;
   }
@@ -427,6 +463,12 @@
     text-overflow: ellipsis;
   }
 }
+  .ec-custom-grid & {
+    margin: 0 3px 0 0;
+    max-width: 100%;
+    text-overflow: ellipsis;
+  }
+}
 
 .ec-event-title {
   overflow: hidden;
@@ -434,6 +476,7 @@
   font-weight: inherit;
 
   .ec-day-grid &,
+  .ec-custom-grid &,
   .ec-all-day & {
     min-height: 1.5em;
     white-space: nowrap;
@@ -574,6 +617,7 @@
   user-select: none;
 
   .ec-day-grid &,
+  .ec-custom-grid &,
   .ec-all-day & {
     top: 0;
     right: 0;

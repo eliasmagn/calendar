@@ -75,6 +75,23 @@ export default [
 		],
 	},
 	{
+		input: 'packages/custom-grid/src/index.js',
+		output: {
+			format: 'es',
+			file: 'packages/day-grid/index.js'
+		},
+		external: ['@event-calendar/core', 'svelte', 'svelte/internal', 'svelte/store'],
+		plugins: [
+			svelte({
+				compilerOptions: {
+					dev: !production,
+					discloseVersion: false,
+					css: false
+				}
+			})
+		],
+	},
+	{
 		input: 'packages/list/src/index.js',
 		output: {
 			format: 'es',

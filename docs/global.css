@@ -28,9 +28,15 @@ body {
 .ec.ec-day-grid {
 	height: 400px;
 }
+.ec.ec-custom-grid {
+	height: 400px;
+}
 @media (min-width: 576px) {
 	.ec {
 		height: 700px;
+	}
+	.ec.ec-custom-grid {
+		height: 500px;
 	}
 	.ec.ec-day-grid {
 		height: 500px;
@@ -40,12 +46,18 @@ body {
 	.ec {
 		height: 800px;
 	}
+	.ec.ec-custom-grid {
+		height: 700px;
+	}
 	.ec.ec-day-grid {
 		height: 700px;
 	}
 }
 @media (min-width: 1200px) {
 	.ec.ec-day-grid {
+		height: 800px;
+	}
+	.ec.ec-custom-grid {
 		height: 800px;
 	}
 }

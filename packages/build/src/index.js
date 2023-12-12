@@ -1,5 +1,6 @@
 import Calendar from '@event-calendar/core';
 import DayGrid from '@event-calendar/day-grid';
+import CustomGrid from '@event-calendar/custom-grid';
 import List from '@event-calendar/list';
 import TimeGrid from '@event-calendar/time-grid';
 import ResourceTimeGrid from '@event-calendar/resource-time-grid';
@@ -11,7 +12,7 @@ export default class extends Calendar {
         super({
             target: el,
             props: {
-                plugins: [DayGrid, List, TimeGrid, ResourceTimeGrid, Interaction],
+                plugins: [CustomGrid, DayGrid, List, TimeGrid, ResourceTimeGrid, Interaction],
                 options
             }
         });

@@ -2,6 +2,7 @@
   "build",
   "core",
   "day-grid",
+  "custom-grid",
   "interaction",
   "list",
   "resource-time-grid",
