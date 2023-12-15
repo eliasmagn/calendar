@@ -21,15 +21,22 @@ import {
 export function dayGrid(state) {
     return derived(state.view, $view => $view?.startsWith('dayGrid'));
 }
+export function customGrid(state) {
+    return derived(state.view, $view => $view?.startsWith('customGrid'));
+}
 
 export function activeRange(state) {
     return derived(
-        [state._currentRange, state.firstDay, state.slotMaxTime, state._dayGrid],
-        ([$_currentRange, $firstDay, $slotMaxTime, $_dayGrid]) => {
+        [state._currentRange, state.firstDay, state.slotMaxTime, state._dayGrid, state._customGrid],
+        ([$_currentRange, $firstDay, $slotMaxTime, $_dayGrid, $_customGrid]) => {
             let start = cloneDate($_currentRange.start);
             let end = cloneDate($_currentRange.end);
 
             if ($_dayGrid) {
+                // First day of week
+                prevClosestDay(start, $firstDay);
+                nextClosestDay(end, $firstDay);
+            } else if ($_customGrid) {		//simplification possible
                 // First day of week
                 prevClosestDay(start, $firstDay);
                 nextClosestDay(end, $firstDay);
@@ -48,10 +55,12 @@ export function activeRange(state) {
 
 export function currentRange(state) {
     return derived(
-        [state.date, state.duration, state.firstDay, state._dayGrid],
-        ([$date, $duration, $firstDay, $_dayGrid]) => {
+        [state.date, state.duration, state.firstDay, state._dayGrid, state._customGrid],
+        ([$date, $duration, $firstDay, $_dayGrid, $_customGrid]) => {
             let start = cloneDate($date), end;
             if ($_dayGrid) {
+                start.setUTCDate(1);
+	    } else if ($_customGrid) {	//simplification possible
                 start.setUTCDate(1);
             } else if ($duration.inWeeks) {
                 // First day of week
@@ -92,11 +101,16 @@ export function viewDates(state) {
 
 export function viewTitle(state) {
     return derived(
-        [state.date, state._activeRange, state._intlTitle, state._dayGrid],
-        ([$date, $_activeRange, $_intlTitle, $_dayGrid]) => {
-            return $_dayGrid
-                ? $_intlTitle.formatRange($date, $date)
-                : $_intlTitle.formatRange($_activeRange.start, subtractDay(cloneDate($_activeRange.end)));
+        [state.date, state._activeRange, state._intlTitle, state._dayGrid, state._customGrid],
+        ([$date, $_activeRange, $_intlTitle, $_dayGrid, $_customGrid]) => {
+	    if ($_dayGrid) {
+                return $_dayGrid
+                $_intlTitle.formatRange($date, $date)
+            } else if ($_customGrid) {
+                return $_customGrid
+                $_intlTitle.formatRange($date, $date)
+            }
+            $_intlTitle.formatRange($_activeRange.start, subtractDay(cloneDate($_activeRange.end)));
         }
     );
 }

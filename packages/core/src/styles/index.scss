@@ -192,10 +192,10 @@
     border-top: none;
   }
 
+  .ec-custom-grid &,
   .ec-day-grid & {
     flex: 1 1 auto;
   }
-}
   .ec-custom-grid & {
     flex: 1 1 auto;
   }
@@ -227,6 +227,7 @@
 .ec-content {
   display: flex;
 
+  .ec-custom-grid &,
   .ec-day-grid & {
     flex-direction: column;
     height: 100%;
@@ -235,12 +236,6 @@
   .ec-day-grid .ec-uniform & {
     overflow: hidden;  // remove scrolling due to hidden events
   }
-
-  .ec-custom-grid & {
-    flex-direction: column;
-    height: 100%;
-  }
-
   .ec-custom-grid .ec-uniform & {
     overflow: hidden;  // remove scrolling due to hidden events
   }
@@ -262,13 +257,17 @@
     border-bottom: none;
   }
 
-  .ec-day-grid &,
   .ec-custom-grid &,
+  .ec-day-grid &,
   .ec-resource & {
     flex: 1 0 auto;
   }
 
   .ec-day-grid .ec-uniform & {
+    flex: 1 1 0%;  // % is required to work properly for both auto and fixed calendar height
+    min-height: 0;
+  }
+  .ec-custom-grid .ec-uniform & {
     flex: 1 1 0%;  // % is required to work properly for both auto and fixed calendar height
     min-height: 0;
   }
@@ -297,7 +296,6 @@
   .ec-day-grid &:first-child {
     border-left: none;
   }
-
   .ec-custom-grid .ec-body & {
     min-height: 5em;
     position: relative;
@@ -326,6 +324,18 @@
     text-align: right;
     padding: 4px 4px 3px;
   }
+
+  .ec-day-foot {
+    position: absolute;
+    bottom: 0;
+    padding: 2px;
+    font-size: .85em;
+
+    a {
+      cursor: pointer;
+    }
+  }
+}
 
 .ec-custom-grid {
   .ec-day-head {
@@ -393,8 +403,8 @@
   line-height: 1.5;
   z-index: 1;  // put it above the pointer event (for multi-day events in month view)
 
-  .ec-day-grid &,
   .ec-custom-grid &,
+  .ec-day-grid &,
   .ec-all-day & {
     position: relative;
   }
@@ -438,8 +448,8 @@
   flex-direction: column;
   width: 100%;
 
-  .ec-day-grid &,
   .ec-custom-grid &,
+  .ec-day-grid &,
   .ec-all-day & {
     flex-direction: row;
   }
@@ -457,13 +467,8 @@
   margin: 0 0 1px 0;
   flex-shrink: 0;
 
+  .ec-day-grid &, 
   .ec-day-grid & {
-    margin: 0 3px 0 0;
-    max-width: 100%;
-    text-overflow: ellipsis;
-  }
-}
-  .ec-custom-grid & {
     margin: 0 3px 0 0;
     max-width: 100%;
     text-overflow: ellipsis;
@@ -475,8 +480,8 @@
   margin: unset;
   font-weight: inherit;
 
-  .ec-day-grid &,
   .ec-custom-grid &,
+  .ec-day-grid &,
   .ec-all-day & {
     min-height: 1.5em;
     white-space: nowrap;
@@ -616,8 +621,8 @@
   position: absolute;
   user-select: none;
 
-  .ec-day-grid &,
   .ec-custom-grid &,
+  .ec-day-grid &,
   .ec-all-day & {
     top: 0;
     right: 0;

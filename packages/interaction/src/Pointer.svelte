@@ -38,6 +38,15 @@
         }
     }
 
+    export function enterCustomGrid(date, jsEvent) {
+        if (validEvent(jsEvent)) {
+            colDate = date;
+            colEl = null;
+
+            y = resource = undefined;
+        }
+    }
+
     export function leave(jsEvent) {
         if (validEvent(jsEvent)) {
             removePointerEvent();
@@ -58,7 +67,7 @@
                 floor(ry / $slotHeight)
             );
         } else {
-            // dayGrid
+            // dayGrid & customGrid
             date = colDate;
         }
 

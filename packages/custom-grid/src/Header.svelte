@@ -5,8 +5,8 @@
     let {theme, _intlDayHeader, _intlDayHeaderAL, _days} = getContext('state');
 </script>
 
-<div class="{$theme.header}">
-    <div class="{$theme.days}" role="row">
+<div id="headerheader" class="{$theme.header}">
+    <div id="daysheader" class="{$theme.days}" role="row">
         {#each $_days as day}
             <div class="{$theme.day} {$theme.weekdays?.[day.getUTCDay()]}" role="columnheader">
                 <span

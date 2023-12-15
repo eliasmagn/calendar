@@ -34,7 +34,7 @@
             if (datesEqual(chunk.date, date)) {
                 dayChunks.push(chunk);
                 // if ($dayMaxEvents !== false && dayChunks.length > $dayMaxEvents) {
-                // 	chunk.hidden = true;
+                //chunk.hidden = true;
                 // }
             }
         }
@@ -72,7 +72,7 @@
 
     function createPointerEnterHandler(interaction) {
         return interaction.pointer
-            ? jsEvent => interaction.pointer.enterDayGrid(date, jsEvent)
+            ? jsEvent => interaction.pointer.enterCustomGrid(date, jsEvent)
             : undefined;
     }
 

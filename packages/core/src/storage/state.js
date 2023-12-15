@@ -5,6 +5,7 @@ import {
     activeRange,
     currentRange,
     dayGrid,
+    customGrid,
     events,
     now,
     today,
@@ -35,6 +36,7 @@ export default class {
         this._queue = writable(new Map());  // debounce queue
         this._auxiliary = writable([]);  // auxiliary components
         this._dayGrid = dayGrid(this);
+        this._customGrid = customGrid(this);
         this._currentRange = currentRange(this);
         this._activeRange = activeRange(this);
         this._fetchedRange = writable({start: undefined, end: undefined});

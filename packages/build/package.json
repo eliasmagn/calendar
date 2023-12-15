@@ -19,7 +19,7 @@
   "jsdelivr": "event-calendar.min.js",
   "devDependencies": {
     "@event-calendar/day-grid": "~2.5.0",
-    "@event-calendar/custom-grid": "~2.5.0",
+    "@event-calendar/custom-grid": "~0.0.1",
     "@event-calendar/interaction": "~2.5.0",
     "@event-calendar/list": "~2.5.0",
     "@event-calendar/time-grid": "~2.5.0",

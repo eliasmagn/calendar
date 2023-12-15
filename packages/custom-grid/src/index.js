@@ -10,13 +10,13 @@ export default {
 		options.dayPopoverFormat = {month: 'long', day: 'numeric', year: 'numeric'};
 		options.moreLinkContent = undefined;
 		// Common options
-		options.buttonText.dayGridMonth = 'month';
+		options.buttonText.customGridMonth = 'custom';
 		options.buttonText.close = 'Close';
 		options.theme.uniform = 'ec-uniform';
 		options.theme.dayFoot = 'ec-day-foot';
 		options.theme.popup = 'ec-popup';
-		options.view = 'dayGridMonth';
-		options.views.dayGridMonth = {
+		options.view = 'customGridMonth';
+		options.views.customGridMonth = {
 			buttonText: btnTextMonth,
 			component: View,
 			dayHeaderFormat: {weekday: 'short'},

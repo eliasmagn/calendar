@@ -22,7 +22,7 @@
     } from '@event-calendar/core';
     import {animate, limit} from './utils';
 
-    let {_iEvents, _iClass, _events, _view, _dayGrid, _draggable, dateClick, dragScroll, datesAboveResources,
+    let {_iEvents, _iClass, _events, _view, _dayGrid, _customGrid, _draggable, dateClick, dragScroll, datesAboveResources,
         eventDragMinDistance, eventDragStart, eventDragStop, eventDrop, eventLongPressDelay,
         eventResizeStart, eventResizeStop, eventResize, longPressDelay, selectable, select: selectFn,
         selectBackgroundColor, selectLongPressDelay, selectMinDistance, slotDuration, slotHeight, unselect: unselectFn,
@@ -339,7 +339,8 @@
         bodyRect = rect(bodyEl);
         clipRect = rect(clipEl);
         viewport = [
-            max(0, clipRect.left + ($_dayGrid ? 0 : 8)),  // left
+//            max(0, clipRect.left + ($_dayGrid ? 0 : 8)),  // left
+	    max(0, clipRect.left + ($_dayGrid || $_customGrid ? 0 : 8)),  // left
             min(document.documentElement.clientWidth, clipRect.right) - 2,  // right
             max(0, bodyRect.top ),  // top
             min(document.documentElement.clientHeight, bodyRect.bottom) - 2  // bottom

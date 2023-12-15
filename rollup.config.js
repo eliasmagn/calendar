@@ -78,7 +78,7 @@ export default [
 		input: 'packages/custom-grid/src/index.js',
 		output: {
 			format: 'es',
-			file: 'packages/day-grid/index.js'
+			file: 'packages/custom-grid/index.js'
 		},
 		external: ['@event-calendar/core', 'svelte', 'svelte/internal', 'svelte/store'],
 		plugins: [
@@ -204,7 +204,7 @@ export default [
 
 			// If we're building for production (npm run build
 			// instead of npm run dev), minify
-			production && terser()
+			!production //&& terser()
 		],
 		watch: {
 			clearScreen: false
